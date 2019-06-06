@@ -15,6 +15,8 @@ number_of_ms             = 5
 managed_server_name_base = "managed-server"
 managed_server_port      = 8001
 
+db_wallet                = os.environ.get("DB_WALLET")
+
 readTemplate(wl_home + "/common/templates/wls/wls.jar")
 
 cmo.setName(domain_name)
@@ -64,7 +66,7 @@ cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
 create('myJdbcDriverParams','JDBCDriverParams')
 cd('JDBCDriverParams/NO_NAME_0')
 set('DriverName', dsdriver)
-set('URL', dsurl)
+set('URL', dsurl + db_wallet)
 set('PasswordEncrypted', dspassword)
 set('UseXADataSourceInterface', 'false')
 

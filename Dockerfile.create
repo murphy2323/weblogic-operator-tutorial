@@ -4,6 +4,7 @@ FROM store/oracle/weblogic:12.2.1.3-190111
 
 ENV DOMAIN_NAME="domain1"
 ENV DOMAIN_HOME="/u01/oracle/user_projects/domains/${DOMAIN_NAME}"
+ENV DB_WALLET=$DOMAIN_HOME/Wallet_ATPDB
 
 USER root
 
@@ -19,6 +20,8 @@ COPY target/opdemo.war $DOMAIN_HOME/wlsdeploy/applications/
 
 RUN wlst.sh -skipWLSModuleScanning -loadProperties ${DOMAIN_HOME}/docker-build-tmp/datasource.properties \
       ${DOMAIN_HOME}/docker-build-tmp/model.py
+
+COPY /Users/bob/work/HPHCL/Wallet_ATPDB ${DB_WALLET}
 
 RUN rm -rf ${DOMAIN_HOME}/docker-build-tmp && \
     chown -R oracle:oracle ${DOMAIN_HOME} && \
