@@ -12,7 +12,9 @@ RUN mkdir -p $DOMAIN_HOME && \
     chown -R oracle:oracle $DOMAIN_HOME && \
     chmod -R a+xwr $DOMAIN_HOME && \
     mkdir ${DOMAIN_HOME}/docker-build-tmp && \
-    mkdir -p $DOMAIN_HOME/wlsdeploy/applications/
+    mkdir -p $DOMAIN_HOME/wlsdeploy/applications/ &&
+    mkdir -p ${DB_WALLET}
+
 
 COPY scripts/* ${DOMAIN_HOME}/docker-build-tmp/
 
