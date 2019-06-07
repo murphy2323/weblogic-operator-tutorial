@@ -1,0 +1,15 @@
+atpdb_high = (description= (address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=omvfufbjxrxvsqc_atpdb_high.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adwc.eucom-central-1.oraclecloud.com,OU=Oracle BMCS FRANKFURT,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+atpdb_low = (description= (address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=omvfufbjxrxvsqc_atpdb_low.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adwc.eucom-central-1.oraclecloud.com,OU=Oracle BMCS FRANKFURT,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+atpdb_medium = (description= (address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=omvfufbjxrxvsqc_atpdb_medium.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adwc.eucom-central-1.oraclecloud.com,OU=Oracle BMCS FRANKFURT,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+atpdb_tp = (description= (address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=omvfufbjxrxvsqc_atpdb_tp.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adwc.eucom-central-1.oraclecloud.com,OU=Oracle BMCS FRANKFURT,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+atpdb_tpurgent = (description= (address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=omvfufbjxrxvsqc_atpdb_tpurgent.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adwc.eucom-central-1.oraclecloud.com,OU=Oracle BMCS FRANKFURT,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
