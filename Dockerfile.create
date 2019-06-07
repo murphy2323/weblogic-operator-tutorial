@@ -21,7 +21,7 @@ COPY target/opdemo.war $DOMAIN_HOME/wlsdeploy/applications/
 RUN wlst.sh -skipWLSModuleScanning -loadProperties ${DOMAIN_HOME}/docker-build-tmp/datasource.properties \
       ${DOMAIN_HOME}/docker-build-tmp/model.py
 
-COPY /Users/bob/work/HPHCL/Wallet_ATPDB ${DB_WALLET}
+COPY Wallet_ATPDB ${DB_WALLET}
 
 RUN rm -rf ${DOMAIN_HOME}/docker-build-tmp && \
     chown -R oracle:oracle ${DOMAIN_HOME} && \
