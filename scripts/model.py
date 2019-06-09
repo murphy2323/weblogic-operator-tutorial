@@ -95,7 +95,12 @@ ds.setCalculatedListenPorts(false)
 #cmo.setName(dsname)
 
 cd("/")
+create(dsname, 'JDBCSystemResource')
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+cmo.setName(dsname)
 
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#create('myJdbcDataSourceParams','JDBCDataSourceParams')
 print 'create JDBCDriverParams Properties'
 cmo.create(dsname, 'JDBCSystemResource')
 cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
