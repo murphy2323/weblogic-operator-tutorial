@@ -99,55 +99,89 @@ create(dsname, 'JDBCSystemResource')
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
 cmo.setName(dsname)
 
-#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-#create('myJdbcDataSourceParams','JDBCDataSourceParams')
-
-print 'create JDBCConnectionPoolParams'
-
-connectionPoolParams = cmo.getJDBCConnectionPoolParams()
-connectionPoolParams.setConnectionReserveTimeoutSeconds(25)
-connectionPoolParams.setMaxCapacity(100)
-connectionPoolParams.setTestTableName("SQL ISVALID")
-
-dsParams = jdbc_resource.getJDBCDataSourceParams()
-dsParams.addJNDIName(dsjndiname)
+create('myJdbcDataSourceParams','JDBCDataSourceParams')
+cd('JDBCDataSourceParams/NO_NAME_0')
+set('JNDIName', java.lang.String(dsjndiname))
+set('GlobalTransactionsProtocol', java.lang.String('None'))
 
 print 'create JDBCDriverParams'
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+create('myJdbcDriverParams','JDBCDriverParams')
+cd('JDBCDriverParams/NO_NAME_0')
+set('DriverName', dsdriver)
+set('URL', dsurl)
+set('PasswordEncrypted', dspassword)
+set('UseXADataSourceInterface', 'true')
 
-driverParams = jdbc_resource.getJDBCDriverParams()
-driverParams.setUrl()
-driverParams.setDriverName(dsdriver)
-driverParams.setPassword(dspassword)
 
-driverProperties = driverParams.getProperties()
-proper = driverProperties.createProperty("user")
-proper.setValue(dsusername)
-proper = driverProperties.createProperty("oracle.jdbc.fanEnabled")
-proper.setValue("false")
-proper = driverProperties.createProperty("oracle.net.ssl_server_dn_match")
-proper.setValue("true")
-proper = driverProperties.createProperty("oracle.net.tns_admin")
-proper.setValue(db_wallet)
-proper = driverProperties.createProperty("oracle.net.ssl_version")
-proper.setValue("1.2")
-# Use either the self-opening wallet
-#proper.setValue(db_wallet)
-# or uncomment and use the keyStore/trustStore, but not both
-proper = driverProperties.createProperty("javax.net.ssl.keyStoreType")
-proper.setValue("JKS")
-proper = driverProperties.createProperty("javax.net.ssl.trustStoreType")
-proper.setValue("JKS")
-proper = driverProperties.createProperty("javax.net.ssl.trustStore")
-proper.setValue(db_wallet + "/truststore.jks")
-proper = driverProperties.createProperty("javax.net.ssl.trustStorePassword")
-proper.setEncryptedValue(dspassword)
-proper = driverProperties.createProperty("javax.net.ssl.keyStore")
-proper.setValue(db_wallet + "/keytore.jks")
-proper = driverProperties.createProperty("javax.net.ssl.keyStorePassword")
-proper.setEncryptedValue(dspassword)
+print 'create JDBCConnectionPoolParams'
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
+cd('JDBCConnectionPoolParams/NO_NAME_0')
+set('InitialCapacity', 0)
+set('MaxCapacity', 25)
+set('TestTableName', "SQL ISVALID")
 
-jdbcSR.addTarget(admin_server_name)
-jdbcSR.addTarget(cluster_name)
+print 'create JDBCDriverParams Properties'
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('user','Property')
+cd('Property/user')
+set('Value', dsusername)
+
+cd ("../")
+create('oracle.jdbc.fanEnabled','Property')
+cd('Property/oracle.jdbc.fanEnabled')
+set('Value', "false")
+
+cd ("../")
+create('oracle.net.ssl_server_dn_match','Property')
+cd('Property/oracle.net.ssl_server_dn_match')
+set('Value', "true")
+
+cd ("../")
+create('oracle.net.tns_admin','Property')
+cd('Property/oracle.net.tns_admin')
+set('Value', db_wallet)
+
+cd ("../")
+create('oracle.net.ssl_version','Property')
+cd('Property/oracle.net.ssl_version')
+set('Value', "1.2")
+
+cd ("../")
+create('javax.net.ssl.keyStoreType','Property')
+cd('Property/javax.net.ssl.keyStoreType')
+set('Value', "JKS")
+
+cd ("../")
+create('javax.net.ssl.trustStoreType','Property')
+cd('Property/javax.net.ssl.keyStoreType')
+set('Value', "JKS")
+
+cd ("../")
+create('javax.net.ssl.trustStore','Property')
+cd('Property/javax.net.ssl.trustStore')
+set('Value', db_wallet + "/truststore.jks")
+
+cd ("../")
+create('javax.net.ssl.keyStore','Property')
+cd('Property/javax.net.ssl.keyStore')
+set('Value', db_wallet + "/keystore.jks")
+
+cd ("../")
+create('javax.net.ssl.trustStorePassword','Property')
+cd('Property/javax.net.ssl.trustStorePassword')
+set('Value', dspassword)
+
+cd ("../")
+create('javax.net.ssl.keyStorePassword','Property')
+cd('Property/javax.net.ssl.keyStorePassword')
+set('Value', dspassword)
+
+
+#jdbcSR.addTarget(admin_server_name)
+#jdbcSR.addTarget(cluster_name)
 
 
 # Deploy application
