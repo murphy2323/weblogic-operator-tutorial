@@ -88,6 +88,9 @@ cd("/")
 # ======
 #assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
+cd("Servers/"+server)
+target=cmo
+cd("../..")
 
 print 'create JDBCDriverParams Properties'
 
