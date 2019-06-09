@@ -88,9 +88,8 @@ cd("/")
 # ======
 #assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
-cd("Servers/AdminServer")
-target=cmo
-cd("../..")
+edit()
+startEdit()
 
 print 'create JDBCDriverParams Properties'
 
