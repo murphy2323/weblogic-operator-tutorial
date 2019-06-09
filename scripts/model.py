@@ -124,10 +124,10 @@ set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
 
-cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname )
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname )
 cmo.createProperty("javax.net.ssl.keyStoreType")
 
-cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname + "/Property/javax.net.ssl.keyStoreType")
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname + "/Property/javax.net.ssl.keyStoreType")
 cmo.setValue("JKS")
 
 
