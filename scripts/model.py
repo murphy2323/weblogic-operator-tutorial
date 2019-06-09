@@ -93,7 +93,8 @@ print 'create JDBCDriverParams Properties'
 
 jdbcSR = create(dsname,"JDBCSystemResource")
 print (jdbcSR)
-theJDBCResource = jdbcSR.getJDBCResource()
+cd ('/JdbcResource')
+theJDBCResource = cmo.getJDBCResource()
 theJDBCResource.setName(dsname)
 
 print 'create JDBCConnectionPoolParams'
