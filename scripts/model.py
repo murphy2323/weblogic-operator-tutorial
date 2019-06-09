@@ -90,7 +90,7 @@ cd("/")
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
 
 print 'create JDBCDriverParams Properties'
-jdbcSR = cmo.create(dsname,"JDBCSystemResource")
+cmo.createJDBCSystemResource(dsname)
 theJDBCResource = cmo.lookupJDBCSystemResource(dsname)
 #theJDBCResource = jdbcSR.getJDBCResource()
 
