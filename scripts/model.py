@@ -91,6 +91,7 @@ cd("/")
 
 print 'create JDBCDriverParams Properties'
 #cmo.createJDBCSystemResource(dsname)
+cd ('/')
 data_source = cmo.createJDBCSystemResource();
 data_source.setName(dsname);
 #theJDBCResource = jdbcSR.getJDBCResource()
