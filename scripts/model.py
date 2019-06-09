@@ -88,12 +88,11 @@ cd("/")
 # ======
 #assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
-edit()
-startEdit()
 
 print 'create JDBCDriverParams Properties'
 
 jdbcSR = create(dsname,"JDBCSystemResource")
+print (jdbcSR)
 theJDBCResource = jdbcSR.getJDBCResource()
 theJDBCResource.setName(dsname)
 
