@@ -51,7 +51,7 @@ ds.setCalculatedListenPorts(false)
 
 # Create Datasource
 # ==================
-cd("/")
+#cd("/")
 #create(dsname, 'JDBCSystemResource')
 #cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
 #cmo.setName(dsname)
@@ -89,11 +89,16 @@ cd("/")
 #assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
 
+#cd("/")
+#create(dsname, 'JDBCSystemResource')
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#cmo.setName(dsname)
+
+cd("/")
+
 print 'create JDBCDriverParams Properties'
-#cmo.createJDBCSystemResource(dsname)
-cd ('/')
-data_source = cmo.createJDBCSystemResource(dsname);
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName)
+cmo.create(dsname, 'JDBCSystemResource')
+cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
 cmo.setName(dsname);
 #theJDBCResource = jdbcSR.getJDBCResource()
 jdbc_resource = cmo.getJDBCResource();
