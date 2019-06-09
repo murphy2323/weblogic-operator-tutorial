@@ -52,42 +52,96 @@ ds.setCalculatedListenPorts(false)
 # Create Datasource
 # ==================
 cd("/")
-create(dsname, 'JDBCSystemResource')
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-cmo.setName(dsname)
+#create(dsname, 'JDBCSystemResource')
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#cmo.setName(dsname)
 
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-create('myJdbcDataSourceParams','JDBCDataSourceParams')
-cd('JDBCDataSourceParams/NO_NAME_0')
-set('JNDIName', java.lang.String(dsjndiname))
-set('GlobalTransactionsProtocol', java.lang.String('None'))
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#create('myJdbcDataSourceParams','JDBCDataSourceParams')
+#cd('JDBCDataSourceParams/NO_NAME_0')
+#set('JNDIName', java.lang.String(dsjndiname))
+#set('GlobalTransactionsProtocol', java.lang.String('None'))
 
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-create('myJdbcDriverParams','JDBCDriverParams')
-cd('JDBCDriverParams/NO_NAME_0')
-set('DriverName', dsdriver)
-set('URL', dsurl + db_wallet)
-set('PasswordEncrypted', dspassword)
-set('UseXADataSourceInterface', 'false')
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#create('myJdbcDriverParams','JDBCDriverParams')
+#cd('JDBCDriverParams/NO_NAME_0')
+#set('DriverName', dsdriver)
+#set('URL', dsurl + db_wallet)
+#set('PasswordEncrypted', dspassword)
+#set('UseXADataSourceInterface', 'false')
 
-print 'create JDBCDriverParams Properties'
-create('myProperties','Properties')
-cd('Properties/NO_NAME_0')
-create('user','Property')
-cd('Property/user')
-set('Value', dsusername)
+#print 'create JDBCDriverParams Properties'
+#create('myProperties','Properties')
+#cd('Properties/NO_NAME_0')
+#create('user','Property')
+#cd('Property/user')
+#set('Value', dsusername)
 
-print 'create JDBCConnectionPoolParams'
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
-cd('JDBCConnectionPoolParams/NO_NAME_0')
-set('TestTableName','SQL SELECT 1 FROM DUAL')
-set('InitialCapacity', int(dsinitialcapacity))
+#print 'create JDBCConnectionPoolParams'
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+#create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
+#cd('JDBCConnectionPoolParams/NO_NAME_0')
+#set('TestTableName','SQL SELECT 1 FROM DUAL')
+#set('InitialCapacity', int(dsinitialcapacity))
 
 # Assign
 # ======
-assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
-assign('JDBCSystemResource', dsname, 'Target', cluster_name)
+#assign('JDBCSystemResource', dsname, 'Target', admin_server_name)
+#assign('JDBCSystemResource', dsname, 'Target', cluster_name)
+
+print 'create JDBCDriverParams Properties'
+
+jdbcSR = create(dsname,"JDBCSystemResource")
+theJDBCResource = jdbcSR.getJDBCResource()
+theJDBCResource.setName(dsname)
+
+print 'create JDBCConnectionPoolParams'
+
+connectionPoolParams = theJDBCResource.getJDBCConnectionPoolParams()
+connectionPoolParams.setConnectionReserveTimeoutSeconds(25)
+connectionPoolParams.setMaxCapacity(100)
+connectionPoolParams.setTestTableName("SQL ISVALID")
+
+dsParams = theJDBCResource.getJDBCDataSourceParams()
+dsParams.addJNDIName(dsjndiname)
+
+print 'create JDBCDriverParams'
+
+driverParams = theJDBCResource.getJDBCDriverParams()
+driverParams.setUrl()
+driverParams.setDriverName(dsdriver)
+driverParams.setPassword(dspassword)
+
+driverProperties = driverParams.getProperties()
+proper = driverProperties.createProperty("user")
+proper.setValue(dsusername)
+proper = driverProperties.createProperty("oracle.jdbc.fanEnabled")
+proper.setValue("false")
+proper = driverProperties.createProperty("oracle.net.ssl_server_dn_match")
+proper.setValue("true")
+proper = driverProperties.createProperty("oracle.net.tns_admin")
+proper.setValue(db_wallet)
+proper = driverProperties.createProperty("oracle.net.ssl_version")
+proper.setValue("1.2")
+# Use either the self-opening wallet
+#proper.setValue(db_wallet)
+# or uncomment and use the keyStore/trustStore, but not both
+proper = driverProperties.createProperty("javax.net.ssl.keyStoreType")
+proper.setValue("JKS")
+proper = driverProperties.createProperty("javax.net.ssl.trustStoreType")
+proper.setValue("JKS")
+proper = driverProperties.createProperty("javax.net.ssl.trustStore")
+proper.setValue(db_wallet + "/truststore.jks")
+proper = driverProperties.createProperty("javax.net.ssl.trustStorePassword")
+proper.setEncryptedValue(dspassword)
+proper = driverProperties.createProperty("javax.net.ssl.keyStore")
+proper.setValue(db_wallet + "/keytore.jks")
+proper = driverProperties.createProperty("javax.net.ssl.keyStorePassword")
+proper.setEncryptedValue(dspassword)
+
+jdbcSR.addTarget(admin_server_name)
+jdbcSR.addTarget(cluster_name)
+
 
 # Deploy application
 # ==========================
