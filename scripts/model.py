@@ -92,10 +92,11 @@ cd("/")
 print 'create JDBCDriverParams Properties'
 #cmo.createJDBCSystemResource(dsname)
 cd ('/')
-data_source = cmo.createJDBCSystemResource();
-data_source.setName(dsname);
+data_source = cmo.createJDBCSystemResource(dsname);
+cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName)
+cmo.setName(dsname);
 #theJDBCResource = jdbcSR.getJDBCResource()
-jdbc_resource = data_source.getJDBCResource();
+jdbc_resource = cmo.getJDBCResource();
 jdbc_resource.setName(dsname)
 
 print 'create JDBCConnectionPoolParams'
