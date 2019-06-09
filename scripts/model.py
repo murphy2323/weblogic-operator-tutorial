@@ -101,17 +101,10 @@ cmo.setName(dsname)
 
 #cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
 #create('myJdbcDataSourceParams','JDBCDataSourceParams')
-print 'create JDBCDriverParams Properties'
-cmo.create(dsname, 'JDBCSystemResource')
-cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
-cmo.setName(dsname);
-#theJDBCResource = jdbcSR.getJDBCResource()
-jdbc_resource = cmo.getJDBCResource();
-jdbc_resource.setName(dsname)
 
 print 'create JDBCConnectionPoolParams'
 
-connectionPoolParams = jdbc_resource.getJDBCConnectionPoolParams()
+connectionPoolParams = cmo.getJDBCConnectionPoolParams()
 connectionPoolParams.setConnectionReserveTimeoutSeconds(25)
 connectionPoolParams.setMaxCapacity(100)
 connectionPoolParams.setTestTableName("SQL ISVALID")
