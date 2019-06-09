@@ -90,25 +90,25 @@ cd("/")
 #assign('JDBCSystemResource', dsname, 'Target', cluster_name)
 
 print 'create JDBCDriverParams Properties'
-cmo.createJDBCSystemResource(dsname)
-theJDBCResource = cmo.lookupJDBCSystemResource(dsname)
+#cmo.createJDBCSystemResource(dsname)
+data_source = cmo.createJDBCSystemResource(dsname);
 #theJDBCResource = jdbcSR.getJDBCResource()
-
-theJDBCResource.setName(dsname)
+jdbc_resource = data_source.getJDBCResource();
+jdbc_resource.setName(dsname)
 
 print 'create JDBCConnectionPoolParams'
 
-connectionPoolParams = theJDBCResource.getJDBCConnectionPoolParams()
+connectionPoolParams = jdbc_resource.getJDBCConnectionPoolParams()
 connectionPoolParams.setConnectionReserveTimeoutSeconds(25)
 connectionPoolParams.setMaxCapacity(100)
 connectionPoolParams.setTestTableName("SQL ISVALID")
 
-dsParams = theJDBCResource.getJDBCDataSourceParams()
+dsParams = jdbc_resource.getJDBCDataSourceParams()
 dsParams.addJNDIName(dsjndiname)
 
 print 'create JDBCDriverParams'
 
-driverParams = theJDBCResource.getJDBCDriverParams()
+driverParams = jdbc_resource.getJDBCDriverParams()
 driverParams.setUrl()
 driverParams.setDriverName(dsdriver)
 driverParams.setPassword(dspassword)
