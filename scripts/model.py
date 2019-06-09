@@ -123,6 +123,7 @@ set('MaxCapacity', 25)
 set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
 create('myProperties','Properties')
 cd('Properties/NO_NAME_0')
 create('user','Property')
