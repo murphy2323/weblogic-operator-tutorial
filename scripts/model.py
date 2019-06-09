@@ -123,6 +123,15 @@ set('MaxCapacity', 25)
 set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
+
+cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname + '/Properties/javax.net.ssl.keyStoreType')
+cmo.unSet('SysPropValue')
+cmo.unSet('EncryptedValue')
+cmo.setValue('JKS')
+
+
+
+
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
 create('myProperties','Properties')
 cd('Properties/NO_NAME_0')
