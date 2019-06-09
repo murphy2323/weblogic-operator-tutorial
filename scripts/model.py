@@ -123,6 +123,9 @@ set('MaxCapacity', 25)
 set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/'
+create('myProperties','Properties')
+#cd('Properties/NO_NAME_0')
 
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
 cmo.createProperty("javax.net.ssl.keyStoreType")
