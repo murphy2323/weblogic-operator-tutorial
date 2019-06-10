@@ -116,9 +116,6 @@ set('UseXADataSourceInterface', 'true')
 
 print 'create JDBCConnectionPoolParams'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
-print 'pwd'
-pwd()
-print '---'
 
 create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
 cd('JDBCConnectionPoolParams/NO_NAME_0')
@@ -142,6 +139,7 @@ cd('Properties/NO_NAME_0')
 #cd('/JDBCSystemResources/testDatasource/JdbcResource/testDatasource/JdbcDriverParams/testDatasource/Properties/testDatasource')
 create("javax.net.ssl.keyStoreType", "Property")
 cd("Property")
+cd("javax.net.ssl.keyStoreType")
 #cmo.unSet('SysPropValue')
 #cmo.unSet('EncryptedValue')
 set('Value','JKS')
@@ -151,6 +149,7 @@ cd('JDBCDriverParams/NO_NAME_0')
 cd('Properties/NO_NAME_0')
 create("javax.net.ssl.trustStoreType", "Property")
 cd("Property")
+cd("javax.net.ssl.trustStoreType")
 set('Value','JKS')
 
 cd ("../..")
