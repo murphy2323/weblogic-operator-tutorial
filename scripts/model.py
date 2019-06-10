@@ -126,8 +126,15 @@ print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
 #create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
-
-
+print 'pwd'
+pwd()
+print '---'
+print 'ls (a)'
+ls('a')
+print "---"
+print 'ls (c)'
+ls('c')
+print "---"
 
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname)
 cmo.createProperty('user')
