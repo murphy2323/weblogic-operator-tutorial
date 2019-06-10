@@ -128,145 +128,87 @@ print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
 create('dbParams','JDBCDriverParams')
 cd('JDBCDriverParams/NO_NAME_0')
-dbProps = create('props','Properties')
+create('props','Properties')
 
-
-
-#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname )
-#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
-create('myProperties','Properties')
+cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+cd('JDBCDriverParams/NO_NAME_0')
 cd('Properties/NO_NAME_0')
-#cd('/JDBCSystemResources/testDatasource/JdbcResource/testDatasource/JdbcDriverParams/testDatasource/Properties/testDatasource')
+create("user", "Property")
+cd("Property/user")
+set('Value', dsusername)
+
+cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+cd('JDBCDriverParams/NO_NAME_0')
+cd('Properties/NO_NAME_0')
 create("javax.net.ssl.keyStoreType", "Property")
-cd("Property")
-cd("javax.net.ssl.keyStoreType")
-#cmo.unSet('SysPropValue')
-#cmo.unSet('EncryptedValue')
+cd("Property/javax.net.ssl.keyStoreType")
 set('Value','JKS')
 
 cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
 cd('JDBCDriverParams/NO_NAME_0')
 cd('Properties/NO_NAME_0')
 create("javax.net.ssl.trustStoreType", "Property")
-cd("Property")
-cd("javax.net.ssl.trustStoreType")
+cd("Property/javax.net.ssl.trustStoreType")
 set('Value','JKS')
-
-cd ("../..")
-print 'pwd'
-pwd()
-print '---'
-print 'ls (a)'
-ls('a')
-print "---"
-print 'ls (c)'
-ls('c')
-print "---"
-
-
-
-
-
-#cd('Properties/NO_NAME_0')
-create("javax.net.ssl.keyStoreType", "Property")
-cd("Property")
-#cmo.unSet('SysPropValue')
-#cmo.unSet('EncryptedValue')
-set('Value','JKS')
-
-cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
-cd('Properties/NO_NAME_0')
-create("javax.net.ssl.trustStoreType", "Property")
-cd("Property")
-#cmo.unSet('SysPropValue')
-#cmo.unSet('EncryptedValue')
-set('Value','JKS')
-
-
-
-#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname)
-cmo.createProperty('user')
-
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname + '/Properties/user')
-cmo.setValue("atpuser")
-
-
-
-
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
-print 'ls (a)'
-ls('a')
-print "---"
-print 'ls (c)'
-ls('c')
-print "---"
-
-cmo.createProperty("javax.net.ssl.keyStoreType")
-
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname + "/Property/javax.net.ssl.keyStoreType")
-cmo.setValue("JKS")
-
-
-
-
-
 
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
 create('myProperties','Properties')
 cd('Properties/NO_NAME_0')
-create('user','Property')
-cd('Property/user')
-set('Value', dsusername)
-
-cd ("../")
-create('oracle.jdbc.fanEnabled','Property')
-cd('Property/oracle.jdbc.fanEnabled')
-set('Value', "false")
-
-cd ("../")
-create('oracle.net.ssl_server_dn_match','Property')
-cd('Property/oracle.net.ssl_server_dn_match')
-set('Value', "true")
-
-cd ("../")
-create('oracle.net.tns_admin','Property')
-cd('Property/oracle.net.tns_admin')
-set('Value', db_wallet)
-
-cd ("../")
-create('oracle.net.ssl_version','Property')
-cd('Property/oracle.net.ssl_version')
-set('Value', "1.2")
-
-cd ("../")
-create('javax.net.ssl.keyStoreType','Property')
-cd('Property/javax.net.ssl.keyStoreType')
-set('Value', "JKS")
-
-cd ("../")
-create('javax.net.ssl.trustStoreType','Property')
-cd('Property/javax.net.ssl.keyStoreType')
-set('Value', "JKS")
-
-cd ("../")
-create('javax.net.ssl.trustStore','Property')
-cd('Property/javax.net.ssl.trustStore')
-set('Value', db_wallet + "/truststore.jks")
-
-cd ("../")
-create('javax.net.ssl.keyStore','Property')
-cd('Property/javax.net.ssl.keyStore')
-set('Value', db_wallet + "/keystore.jks")
-
-cd ("../")
 create('javax.net.ssl.trustStorePassword','Property')
 cd('Property/javax.net.ssl.trustStorePassword')
 set('Value', dspassword)
 
-cd ("../")
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
 create('javax.net.ssl.keyStorePassword','Property')
 cd('Property/javax.net.ssl.keyStorePassword')
 set('Value', dspassword)
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('javax.net.ssl.trustStore','Property')
+cd('Property/javax.net.ssl.trustStore')
+set('Value', db_wallet + "/truststore.jks")
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('javax.net.ssl.keyStore','Property')
+cd('Property/javax.net.ssl.keyStore')
+set('Value', db_wallet + "/keystore.jks")
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('oracle.net.tns_admin','Property')
+cd('Property/oracle.net.tns_admin')
+set('Value', db_wallet)
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('oracle.jdbc.fanEnabled','Property')
+cd('Property/oracle.jdbc.fanEnabled')
+set('Value', "false")
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('oracle.net.ssl_server_dn_match','Property')
+cd('Property/oracle.net.ssl_server_dn_match')
+set('Value', "true")
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/Properties/' + dsname)
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
+create('oracle.net.ssl_version','Property')
+cd('Property/oracle.net.ssl_version')
+set('Value', "1.2")
+
+
+
 
 
 #jdbcSR.addTarget(admin_server_name)
