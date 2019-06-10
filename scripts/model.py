@@ -116,6 +116,10 @@ set('UseXADataSourceInterface', 'true')
 
 print 'create JDBCConnectionPoolParams'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+print 'pwd'
+pwd()
+print '---'
+
 create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
 cd('JDBCConnectionPoolParams/NO_NAME_0')
 set('InitialCapacity', 0)
