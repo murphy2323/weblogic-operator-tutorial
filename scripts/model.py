@@ -129,7 +129,7 @@ set('TestTableName', "SQL ISVALID")
 print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
 #create('myProperties','Properties')
-#cd('Properties/NO_NAME_0')
+cd('Properties/NO_NAME_0')
 print 'pwd'
 pwd()
 print '---'
