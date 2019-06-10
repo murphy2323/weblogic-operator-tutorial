@@ -116,6 +116,8 @@ set('UseXADataSourceInterface', 'true')
 
 print 'create JDBCConnectionPoolParams'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname)
+cd('JDBCDriverParams/NO_NAME_0')
+
 print 'pwd'
 pwd()
 print '---'
@@ -128,18 +130,26 @@ set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
 
-cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname) 
-create('dbParams','JDBCDriverParams')
+cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
 cd('JDBCDriverParams/NO_NAME_0')
-dbProps = create('props','Properties')
+print 'pwd'
+pwd()
+print '---'
+print 'ls (a)'
+ls('a')
+print "---"
+print 'ls (c)'
+ls('c')
+print "---"
+create('props','Properties')
 
 
 
 #cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
-create('myProperties','Properties')
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
+#create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
-cd('/JDBCSystemResources/testDatasource/JdbcResource/testDatasource/JdbcDriverParams/testDatasource/Properties/testDatasource')
+#cd('/JDBCSystemResources/testDatasource/JdbcResource/testDatasource/JdbcDriverParams/testDatasource/Properties/testDatasource')
 cmo.createProperty("javax.net.ssl.keyStoreType")
 #cmo.unSet('SysPropValue')
 #cmo.unSet('EncryptedValue')
