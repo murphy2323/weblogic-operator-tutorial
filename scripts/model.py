@@ -122,11 +122,17 @@ set('InitialCapacity', 0)
 set('MaxCapacity', 25)
 set('TestTableName', "SQL ISVALID")
 
-print 'create JDBCDriverParams Properties'
+print 'create JDBCDriverParams Properties
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/')
 create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
 
+print 'ls (a)'
+ls('a')
+print "---"
+print 'ls (c)'
+ls('c')
+print "---"
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
 cmo.createProperty("javax.net.ssl.keyStoreType")
 
