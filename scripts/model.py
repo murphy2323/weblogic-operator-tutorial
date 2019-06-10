@@ -135,15 +135,16 @@ dbProps = create('props','Properties')
 
 
 
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname )
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname )
 #cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
-create('myProperties','JDBCProperties')
-cd('JDBCProperties/NO_NAME_0')
+create('myProperties','Properties')
+cd('Properties/NO_NAME_0')
 #cd('/JDBCSystemResources/testDatasource/JdbcResource/testDatasource/JdbcDriverParams/testDatasource/Properties/testDatasource')
-createProperty("javax.net.ssl.keyStoreType")
-cmo.unSet('SysPropValue')
-cmo.unSet('EncryptedValue')
-cmo.setValue('JKS')
+create("javax.net.ssl.keyStoreType", "Property")
+cd("Property")
+#cmo.unSet('SysPropValue')
+#cmo.unSet('EncryptedValue')
+set('Value','JKS')
 
 
 
