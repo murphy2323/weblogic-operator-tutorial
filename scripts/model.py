@@ -122,7 +122,7 @@ set('InitialCapacity', 0)
 set('MaxCapacity', 25)
 set('TestTableName', "SQL ISVALID")
 
-print 'create JDBCDriverParams Properties
+print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/')
 create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
