@@ -127,13 +127,25 @@ cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverPar
 #create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
 
+
+
+cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname)
+cmo.createProperty('user')
+
+cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/user')
+cmo.setValue("atpuser")
+
+
+
+
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
 print 'ls (a)'
 ls('a')
 print "---"
 print 'ls (c)'
 ls('c')
 print "---"
-#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
+
 cmo.createProperty("javax.net.ssl.keyStoreType")
 
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname + "/Property/javax.net.ssl.keyStoreType")
