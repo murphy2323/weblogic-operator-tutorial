@@ -214,7 +214,7 @@ set('Value', "1.2")
 #jdbcSR.addTarget(admin_server_name)
 #jdbcSR.addTarget(cluster_name)
 cd('/JDBCSystemResources/' + dsname)
-set('Targets',jarray.array([cl],TargetMBean))
+set('Targets',cluster_name)
 
 
 # Deploy application
