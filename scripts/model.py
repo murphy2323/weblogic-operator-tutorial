@@ -130,7 +130,7 @@ print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
 #create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
-cd('/JDBCSystemResources/testDatasource/JDBCResource/testDatasource1/JDBCDriverParams/testDatasource/Properties/testDatasource/Properties/javax.net.ssl.keyStoreType')
+cd('/JDBCSystemResources/testDatasource/JDBCResource/testDatasource/JDBCDriverParams/testDatasource/Properties/testDatasource/Properties/javax.net.ssl.keyStoreType')
 cmo.unSet('SysPropValue')
 cmo.unSet('EncryptedValue')
 cmo.setValue('JKS')
