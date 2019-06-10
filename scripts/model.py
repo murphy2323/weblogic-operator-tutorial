@@ -146,6 +146,21 @@ cd("Property")
 #cmo.unSet('EncryptedValue')
 set('Value','JKS')
 
+cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+cd('Properties/NO_NAME_0')
+create("javax.net.ssl.keyStoreType", "Property")
+cd("Property")
+#cmo.unSet('SysPropValue')
+#cmo.unSet('EncryptedValue')
+set('Value','JKS')
+
+cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+cd('Properties/NO_NAME_0')
+create("javax.net.ssl.trustStoreType", "Property")
+cd("Property")
+#cmo.unSet('SysPropValue')
+#cmo.unSet('EncryptedValue')
+set('Value','JKS')
 
 
 print 'pwd'
