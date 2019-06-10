@@ -129,7 +129,14 @@ set('TestTableName', "SQL ISVALID")
 print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
 #create('myProperties','Properties')
-cd('Properties/NO_NAME_0')
+#cd('Properties/NO_NAME_0')
+cd('/JDBCSystemResources/testDatasource/JDBCResource/testDatasource1/JDBCDriverParams/testDatasource/Properties/testDatasource/Properties/javax.net.ssl.keyStoreType')
+cmo.unSet('SysPropValue')
+cmo.unSet('EncryptedValue')
+cmo.setValue('JKS')
+
+
+
 print 'pwd'
 pwd()
 print '---'
