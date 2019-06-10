@@ -124,7 +124,7 @@ set('TestTableName', "SQL ISVALID")
 
 print 'create JDBCDriverParams Properties'
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname)
-create('myProperties','Properties')
+#create('myProperties','Properties')
 #cd('Properties/NO_NAME_0')
 
 print 'ls (a)'
