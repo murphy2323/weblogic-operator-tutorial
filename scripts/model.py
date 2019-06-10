@@ -147,9 +147,27 @@ cd("Property")
 set('Value','JKS')
 
 cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+cd('JDBCDriverParams/NO_NAME_0')
 cd('Properties/NO_NAME_0')
 create("javax.net.ssl.trustStoreType", "Property")
 cd("Property")
+set('Value','JKS')
+
+cd ("../..")
+print 'pwd'
+pwd()
+print '---'
+print 'ls (a)'
+ls('a')
+print "---"
+print 'ls (c)'
+ls('c')
+print "---"
+
+
+
+
+
 #cd('Properties/NO_NAME_0')
 create("javax.net.ssl.keyStoreType", "Property")
 cd("Property")
@@ -166,15 +184,6 @@ cd("Property")
 set('Value','JKS')
 
 
-print 'pwd'
-pwd()
-print '---'
-print 'ls (a)'
-ls('a')
-print "---"
-print 'ls (c)'
-ls('c')
-print "---"
 
 #cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname)
 cmo.createProperty('user')
