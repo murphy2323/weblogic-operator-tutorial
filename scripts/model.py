@@ -129,10 +129,10 @@ cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverPar
 
 
 
-cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname)
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname)
 cmo.createProperty('user')
 
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/user')
+cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname + '/Properties/user')
 cmo.setValue("atpuser")
 
 
