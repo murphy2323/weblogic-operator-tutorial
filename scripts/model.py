@@ -133,7 +133,7 @@ print "---"
 print 'ls (c)'
 ls('c')
 print "---"
-cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
+#cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname )
 cmo.createProperty("javax.net.ssl.keyStoreType")
 
 cd('/JDBCSystemResource/' + dsname + '/JdbcResource/' + dsname + '/JdbcDriverParams/' + dsname + '/Properties/' + dsname + "/Property/javax.net.ssl.keyStoreType")
